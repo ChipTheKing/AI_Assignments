@@ -21,5 +21,31 @@ def create_puzzle():
     return puzzle
 
 
+def puzzle_search(puzzle, value):
+    x_index, y_index = 0, 0
+    for x in range(3):
+        if value in puzzle[x]:
+            x_index = x
+            y_index = puzzle[x].index(0)
+    return x_index, y_index
+
+
+def puzzle_swap(puzzle, x1_index, y1_index, x2_index, y2_index):
+    current_puzzle = puzzle
+    value1 = current_puzzle[x1_index][y1_index]
+    value2 = current_puzzle[x2_index][y2_index]
+
+    current_puzzle[x1_index][y1_index] = value2
+    current_puzzle[x2_index][y2_index] = value1
+
+    return current_puzzle
+
+
 if __name__ == '__main__':
-    print(create_puzzle())
+    puzzle_goal = [[1, 2, 3], [4, 0, 5], [6, 7, 8]]
+    initial_puzzle = create_puzzle()
+
+    # print(puzzle_goal)
+    print(initial_puzzle)
+    print(puzzle_search(initial_puzzle, 0))
+    print(puzzle_swap(initial_puzzle, 0, 0, 2, 1))
