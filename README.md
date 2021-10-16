@@ -1,4 +1,5 @@
-# AI_Assignments
+AI_Assignments
+
  Repository for AI assignments
 
 AI Assignment 02:
