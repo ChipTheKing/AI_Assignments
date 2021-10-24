@@ -29,6 +29,34 @@ def create_puzzle():
     return puzzle  # return completed 3x3 list
 
 
+def move_up(puzzle, index_x, index_y):
+    if index_x != 0:
+        return puzzle_swap(puzzle, index_x, index_y, index_x + 1, index_y)
+    else:
+        return None
+
+
+def move_down(puzzle, index_x, index_y):
+    if index_x != 2:
+        return puzzle_swap(puzzle, index_x, index_y, index_x - 1, index_y)
+    else:
+        return None
+
+
+def move_left(puzzle, index_x, index_y):
+    if index_y != 0:
+        return puzzle_swap(puzzle, index_x, index_y, index_x, index_y - 1)
+    else:
+        return None
+
+
+def move_right(puzzle, index_x, index_y):
+    if index_y != 2:
+        return puzzle_swap(puzzle, index_x, index_y, index_x, index_y + 1)
+    else:
+        return None
+
+
 # function puzzle search looks through the multidimensional list for a given value
 def puzzle_search(puzzle, value):
     x_index, y_index = 0, 0  # variable initialization
