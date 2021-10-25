@@ -29,20 +29,23 @@ def create_puzzle():
     return puzzle  # return completed 3x3 list
 
 
+# function moves the chosen index up one in the puzzle, as long as it is capable of doing so
 def move_up(puzzle, index_x, index_y):
     if index_x != 0:
-        return puzzle_swap(puzzle, index_x, index_y, index_x + 1, index_y)
-    else:
-        return None
-
-
-def move_down(puzzle, index_x, index_y):
-    if index_x != 2:
         return puzzle_swap(puzzle, index_x, index_y, index_x - 1, index_y)
     else:
         return None
 
 
+# function moves the chosen index down one in the puzzle, as long as it is capable of doing so
+def move_down(puzzle, index_x, index_y):
+    if index_x != 2:
+        return puzzle_swap(puzzle, index_x, index_y, index_x + 1, index_y)
+    else:
+        return None
+
+
+# function moves the chosen index left one in the puzzle, as long as it is capable of doing so
 def move_left(puzzle, index_x, index_y):
     if index_y != 0:
         return puzzle_swap(puzzle, index_x, index_y, index_x, index_y - 1)
@@ -50,11 +53,18 @@ def move_left(puzzle, index_x, index_y):
         return None
 
 
+# function moves the chosen index right one in the puzzle, as long as it is capable of doing so
 def move_right(puzzle, index_x, index_y):
     if index_y != 2:
         return puzzle_swap(puzzle, index_x, index_y, index_x, index_y + 1)
     else:
         return None
+
+
+# prints the multidimensional list one at a time to show the correct format
+def print_format(puzzle):
+    for x in range(3):
+        print(puzzle[x])
 
 
 # function puzzle search looks through the multidimensional list for a given value
@@ -88,6 +98,6 @@ if __name__ == '__main__':
     initial_puzzle = create_puzzle()
 
     # print(puzzle_goal)  # print statement for the goal
-    print(initial_puzzle)  # print statement for the randomized list
+    print_format(initial_puzzle)  # print statement for the randomized list
     print(puzzle_search(initial_puzzle, 0))  # prints the index values for the location of the value 0 in the list
-    print(puzzle_swap(initial_puzzle, 0, 0, 2, 1))  # swaps the values at (0,0) and (2,1) and prints the result
+    print(move_up(initial_puzzle, 2, 1))  # swaps the values at (0,0) and (2,1) and prints the result
